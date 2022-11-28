@@ -11,7 +11,6 @@ import forca6 from './Assets/forca6.png'
 let v = true
 let f = false
 
-
 export default function App() {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
                       "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
@@ -60,7 +59,7 @@ export default function App() {
         }
         )
 
-        if (!acertou) {
+        if (acertou !== false) {
             erros += 1
             setQtdErros(erros)
             // console.log('qtdErros antes =', erros)
@@ -116,6 +115,7 @@ export default function App() {
         }
     }
 
+    // Garantir que os dígitos especiais sejam escolhidos
     function accentOut(text) {
         text = text.toLowerCase();
         text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -134,7 +134,7 @@ export default function App() {
     function showLetter(letra) {
 
         return (
-            <button className="btn-letra" disabled={desabilitaAlfabeto} data-identifier="letter" data-index={letra} key={letra} onClick={() => choiceLetter(letra)}>
+            <button className="btn-letra" disabled={desabilitaAlfabeto} data-test="letter" data-index={letra} key={letra} onClick={() => choiceLetter(letra)}>
                 {letra}
             </button>
         )
@@ -146,9 +146,8 @@ export default function App() {
         const acertouChute = palavraNew === accentOut(chute).toUpperCase()
         setDesabilitaAlfabeto(v)
 
-        if (acertouChute) {
+        if (acertouChute)
             greenWord()
-        }
         else {
             redWord()
             updateForceImg(6)
@@ -188,19 +187,18 @@ export default function App() {
         setPalavra(Array.from(palavras[index]))
     }
 
-
     return (
         <div className="estilo">
             <div className="area-forca">
                 <div className="imagem-forca">
-                    <img src={imagemForca} alt="" data-identifier="game-image" />
+                    <img src={imagemForca} alt="" data-test="game-image" />
                 </div>
 
                 <div className="area-palavra">
                     <div >
-                        <button data-identifier="choose-word" className="btn-escolher-palavra" onClick={restart}>Escolher Palavra</button>
+                        <button data-test="choose-word" className="btn-escolher-palavra" onClick={restart}>Escolher Palavra</button>
                     </div>
-                    <div data-identifier="word">
+                    <div data-test="word">
                         {palavra.map((p, index) => letter(index))}
                     </div>
 
@@ -220,8 +218,8 @@ export default function App() {
             </div>
             <div className="area-input">
                 <div>Já sei a palavra!</div>
-                <div><input disabled={desabilitaAlfabeto} type="text" value={chute} onChange={(e) => setChute(e.target.value)} data-identifier="type-guess" /></div>
-                <div><button className="btn-chutar" disabled={desabilitaAlfabeto} onClick={userWriteWord} data-identifier="guess-button">Chutar</button></div>
+                <div><input disabled={desabilitaAlfabeto} type="text" value={chute} onChange={(e) => setChute(e.target.value)} data-test="type-guess" /></div>
+                <div><button className="btn-chutar" disabled={desabilitaAlfabeto} onClick={userWriteWord} data-test="guess-button">Chutar</button></div>
             </div>
 
         </div>
