@@ -59,10 +59,9 @@ export default function App() {
         }
         )
 
-        if (acertou !== false) {
+        if (!acertou) {
             erros += 1
             setQtdErros(erros)
-            // console.log('qtdErros antes =', erros)
             updateForceImg(erros)
         }
 
@@ -84,7 +83,7 @@ export default function App() {
         const palpites = letrasEscolhidas
         const palavraSemAcento = accentOut(palavra.join(''))
         const palpitesCertos = palpites.filter((p) => {
-            if (palavraSemAcento.indexOf(accentOut(p)) !== -1)
+            if(palavraSemAcento.indexOf(accentOut(p)) !== -1)
                 return p
         })
 
@@ -102,8 +101,8 @@ export default function App() {
         hideWord()
     }
 
+    // Ir Renderizando as imagens a medida que o usuário erra
     function updateForceImg(erros) {
-        // console.log('qtdErros =', erros)
         switch (erros) {
             case 1: setImagemForca(forca1); break;
             case 2: setImagemForca(forca2); break;
@@ -118,11 +117,11 @@ export default function App() {
     // Garantir que os dígitos especiais sejam escolhidos
     function accentOut(text) {
         text = text.toLowerCase();
-        text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
-        text = text.replace(new RegExp('[ÉÈÊ]', 'gi'), 'e');
-        text = text.replace(new RegExp('[ÍÌÎ]', 'gi'), 'i');
-        text = text.replace(new RegExp('[ÓÒÔÕ]', 'gi'), 'o');
-        text = text.replace(new RegExp('[ÚÙÛ]', 'gi'), 'u');
+        text = text.replace(new RegExp('[ÁÂÃ]', 'gi'), 'a');
+        text = text.replace(new RegExp('[ÉÊ]', 'gi'), 'e');
+        text = text.replace(new RegExp('[ÍÎ]', 'gi'), 'i');
+        text = text.replace(new RegExp('[ÓÔÕ]', 'gi'), 'o');
+        text = text.replace(new RegExp('[ÚÛ]', 'gi'), 'u');
         text = text.replace(new RegExp('[Ç]', 'gi'), 'c');
         return text;
     }
@@ -198,7 +197,7 @@ export default function App() {
                     <div >
                         <button data-test="choose-word" className="btn-escolher-palavra" onClick={restart}>Escolher Palavra</button>
                     </div>
-                    <div data-test="word">
+                    <div data-test="word" data-answer = "">
                         {palavra.map((p, index) => letter(index))}
                     </div>
 
