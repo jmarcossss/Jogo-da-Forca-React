@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  
+    margin: 54px 0 0;
+  }
+  
+  
+  .estilo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 10px;
+  
+  }
+  
+  
+  .area-forca {
+    display: flex;
+    flex-direction: row;
+  
+  }
+  
+  
+  
+  .imagem-forca img {
+    /* refletir altura */
+    /* height: 400px; */
+    width: 400px;
+  
+  
+    /* margin-left: 470px;
+      margin-right: 420px; */
+  
+  }
+  
+  .area-palavra {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    margin-left: 400px;
+    margin-right: 100px;
+  }
+  
+  .btn-escolher-palavra {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: #27AE60;
+    color: #FFF;
+    font-weight: bold;
+  
+  
+  
+    cursor: pointer;
+    margin-top: 45px;
+  
+  }
+  
+  .area-palavra .letra {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20px;
+  
+  }
+  
+  .area-alfabeto {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin-right: 100px;
+      margin-left: 100px; */
+    margin-left: 370px;
+    margin-right: 370px;
+  }
+  
+  .area-alfabeto button {
+    /* margin: 2px; */
+    margin: 10px;
+  
+  }
+  
+  button {
+  
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color: #E1ECF4;
+    color: #4D799D;
+    font-weight: bold;
+  }
+  
+  div button {
+    border: solid 1px;
+    border-radius: 10px;
+    border-color: #4D799D;
+    box-shadow: none;
+  }
+  
+  div button:disabled {
+    background-color: #9FAAB5;
+    color: #79818A;
+  }
+  
+  .btn-letra {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: #4D799D;
+    box-shadow: none;
+    background-color: #E1ECF4;
+    color: #4D799D;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .btn-letra:disabled {
+    background-color: #9FAAB5;
+    color: #79818A;
+  }
+  
+  .letra {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .escondido {
+    display: none;
+  }
+  
+  .green_letter {
+    color: #27AE60;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 20px;
+  }
+  
+  .red_letter {
+    color: red;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 20px;
+  }
+  
+  .area-input {
+    display: flex;
+    align-items: center;
+    margin: 10px; 
+  }
+  
+  .area-input div {
+    padding: 5px;
+    font-size: 18px;
+  }
+  
+  input {
+    height: 40px;
+    box-shadow: none;
+    outline: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    border: none;
+  }
+  
+  .input:focus {
+    outline: 0;
+  }
+  
+  div input {
+    border: solid 1px;
+    border-color: lightgray;
+  }
+  
+  .btn-chutar {
+    cursor: pointer;
+  }
